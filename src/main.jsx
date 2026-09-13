@@ -4,6 +4,7 @@ import "./styles.css";
 
 const ASSET_BASE = `${import.meta.env.BASE_URL}assets/`;
 const PHOTO_SRC = `${ASSET_BASE}IMG_20260913_050139_348.jpg`;
+const ANSWER_EMAIL = "rs617718@gmail.com";
 const doodleTypes = ["heart", "spark", "ring", "squiggle", "dot"];
 const imageAssets = [
   "IMG_20260913_050139_348.jpg",
@@ -328,14 +329,32 @@ function FinalChoicePage() {
   const canSubmit = choiceAnswer.trim().length > 0;
 
   return (
-    <div className="finalChoice">
+    <form
+      action={`https://formsubmit.co/${ANSWER_EMAIL}`}
+      className="finalChoice"
+      method="POST"
+      target="answerSubmitFrame"
+      onSubmit={(event) => {
+        if (!canSubmit) {
+          event.preventDefault();
+          return;
+        }
+        setSubmittedAnswer(choiceAnswer.trim());
+        setShowLetter(true);
+      }}
+    >
       <p className="psst">one last question ~</p>
       <h2>will you always choose me?</h2>
       <p className="caption">write your heart here, then send it to me.</p>
 
+      <input name="_captcha" type="hidden" value="false" />
+      <input name="_subject" type="hidden" value="Her answer from Aliza" />
+      <input name="_template" type="hidden" value="box" />
+
       <label className="answerBox">
         your answer
         <textarea
+          name="answer"
           value={choiceAnswer}
           onChange={(event) => setChoiceAnswer(event.target.value)}
           placeholder="write it here..."
@@ -345,18 +364,13 @@ function FinalChoicePage() {
 
       <button
         className="openButton softPurple unlockButton"
-        type="button"
+        type="submit"
         disabled={!canSubmit}
-        onClick={() => {
-          if (!canSubmit) {
-            return;
-          }
-          setSubmittedAnswer(choiceAnswer.trim());
-          setShowLetter(true);
-        }}
       >
-        show my answer <span aria-hidden="true">💜</span>
+        send my answer <span aria-hidden="true">💜</span>
       </button>
+
+      <iframe className="hiddenSubmitFrame" name="answerSubmitFrame" title="Answer email submit" />
 
       {submittedAnswer && (
         <div className="answerDisplay">
@@ -385,7 +399,7 @@ function FinalChoicePage() {
           </div>
         </div>
       )}
-    </div>
+    </form>
   );
 }
 

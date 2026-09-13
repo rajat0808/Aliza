@@ -991,6 +991,15 @@ h2 {
   line-height: 1.65;
 }
 
+.hiddenSubmitFrame {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  border: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .doodleLayer {
   position: absolute;
   inset: 0;
