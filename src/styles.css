@@ -1210,13 +1210,30 @@ h2 {
   .secretReveal {
     max-height: none;
     overflow: visible;
+    gap: 0.75rem;
+  }
+
+  .secretReveal .psst {
+    font-size: clamp(1rem, 5vw, 1.25rem);
+  }
+
+  .secretReveal h2 {
+    max-width: 13ch;
+    font-size: clamp(2rem, 10vw, 2.85rem);
+    line-height: 1;
+  }
+
+  .secretReveal > .caption {
+    max-width: 28ch;
+    font-size: clamp(1rem, 4.5vw, 1.22rem);
+    line-height: 1.42;
   }
 
   .memoryWall {
-    grid-auto-rows: 5.5rem;
+    grid-auto-rows: 4.25rem;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.75rem;
-    padding-inline: 0.2rem;
+    gap: 0.65rem;
+    padding: 0.55rem 0.15rem 0.25rem;
   }
 
   .memoryTile,
@@ -1231,19 +1248,27 @@ h2 {
     grid-column: span 1;
     grid-row: span 2;
     border-width: 0.32rem;
-    border-bottom-width: 0.85rem;
+    border-bottom-width: 0.72rem;
+    border-radius: 0.62rem;
+    transform: rotate(0deg);
+  }
+
+  .memoryTile::before {
+    top: -0.58rem;
+    width: 2.25rem;
+    height: 0.75rem;
   }
 
   .collage-1,
   .collage-4,
   .collage-7 {
     grid-column: span 2;
-    grid-row: span 3;
+    grid-row: span 2;
   }
 
   .videoTile {
     grid-column: span 2;
-    grid-row: span 3;
+    grid-row: span 2;
   }
 
   .finalChoice {
@@ -1332,6 +1357,24 @@ h2 {
   .secretLock,
   .finalChoice {
     gap: 0.75rem;
+  }
+
+  .loveCard.page-secret {
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+  }
+
+  .loveCard.page-secret .secretReveal h2 {
+    font-size: clamp(1.85rem, 9vw, 2.55rem);
+  }
+
+  .loveCard.page-secret .secretReveal > .caption {
+    font-size: clamp(0.98rem, 4.2vw, 1.14rem);
+    line-height: 1.38;
+  }
+
+  .loveCard.page-secret .memoryWall {
+    grid-auto-rows: 3.85rem;
   }
 
   .secretQuestion div,
