@@ -1449,3 +1449,81 @@ h2 {
     min-height: 2.85rem;
   }
 }
+
+@media (max-width: 620px) {
+  .loveCard.page-secret {
+    width: min(23.8rem, calc(100vw - 0.8rem));
+    padding: 2.1rem 0.7rem 1.15rem;
+  }
+
+  .loveCard.page-secret .secretReveal {
+    gap: 0.55rem;
+  }
+
+  .loveCard.page-secret .secretReveal .psst {
+    font-size: 1rem;
+  }
+
+  .loveCard.page-secret .secretReveal h2 {
+    max-width: 14ch;
+    font-size: clamp(1.6rem, 7.4vw, 2.2rem);
+    line-height: 1.04;
+  }
+
+  .loveCard.page-secret .secretReveal > .caption {
+    max-width: 30ch;
+    font-size: clamp(0.86rem, 3.7vw, 1rem);
+    line-height: 1.38;
+  }
+
+  .loveCard.page-secret .memoryWall {
+    display: grid;
+    grid-auto-flow: row;
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.55rem;
+    padding: 0.45rem 0.05rem 0.2rem;
+  }
+
+  .loveCard.page-secret .memoryTile,
+  .loveCard.page-secret .collage-1,
+  .loveCard.page-secret .collage-2,
+  .loveCard.page-secret .collage-3,
+  .loveCard.page-secret .collage-4,
+  .loveCard.page-secret .collage-5,
+  .loveCard.page-secret .collage-6,
+  .loveCard.page-secret .collage-7,
+  .loveCard.page-secret .collage-8 {
+    grid-column: auto;
+    grid-row: auto;
+    height: 8.4rem;
+    border-width: 0.28rem;
+    border-bottom-width: 0.62rem;
+    border-radius: 0.65rem;
+    transform: none;
+  }
+
+  .loveCard.page-secret .memoryTile:nth-child(3n + 1) {
+    height: 7.3rem;
+  }
+
+  .loveCard.page-secret .memoryTile:nth-child(4n + 2) {
+    height: 9.4rem;
+  }
+
+  .loveCard.page-secret .memoryTile::before {
+    top: -0.48rem;
+    width: 1.85rem;
+    height: 0.6rem;
+  }
+
+  .loveCard.page-secret .videoTile {
+    grid-column: 1 / -1;
+    height: 11rem;
+  }
+
+  .loveCard.page-secret .finalPageButton {
+    min-height: 3.2rem;
+    margin-top: 0.1rem;
+  }
+}
