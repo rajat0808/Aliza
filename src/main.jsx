@@ -402,6 +402,16 @@ function FinalChoicePage() {
               Your answer is staying right here with me, like a tiny promise
               folded into lavender paper.
             </p>
+            <p>
+              Mera dil tumhare liye sach mein soft corner rakhta hai. Jo feeling
+              hai na, woh simple bhi hai aur deep bhi: main tumhe har din choose
+              karta hu, even when days are confusing or distance feels too much.
+            </p>
+            <p>
+              Bas please apna dhyaan rakhna, khud ko hurt mat karna, aur thoda
+              sa sudhar jao where life asks you to. I want you happy, safe, and
+              glowing, because you matter to me more than I can properly say.
+            </p>
             <button className="openButton softPurple" type="button" onClick={() => setShowLetter(false)}>
               keep it close <span aria-hidden="true">🫶</span>
             </button>
