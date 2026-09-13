@@ -2,7 +2,8 @@ import React, { useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
 
-const PHOTO_SRC = "/assets/IMG_20260913_050139_348.jpg";
+const ASSET_BASE = `${import.meta.env.BASE_URL}assets/`;
+const PHOTO_SRC = `${ASSET_BASE}IMG_20260913_050139_348.jpg`;
 const doodleTypes = ["heart", "spark", "ring", "squiggle", "dot"];
 const imageAssets = [
   "IMG_20260913_050139_348.jpg",
@@ -212,13 +213,13 @@ function SecretGallery({ onNext }) {
 
         <div className="memoryWall" aria-label="Unlocked images and videos">
           {imageAssets.map((asset, index) => (
-            <figure className="memoryTile" key={asset}>
-              <img src={`/assets/${asset}`} alt={`Memory ${index + 1}`} loading="lazy" />
+            <figure className={`memoryTile collage-${(index % 8) + 1}`} key={asset}>
+              <img src={`${ASSET_BASE}${asset}`} alt={`Memory ${index + 1}`} loading="lazy" />
             </figure>
           ))}
           {videoAssets.map((asset, index) => (
             <figure className="memoryTile videoTile" key={asset}>
-              <video src={`/assets/${asset}`} controls playsInline preload="metadata" />
+              <video src={`${ASSET_BASE}${asset}`} controls playsInline preload="metadata" />
               <figcaption>video {index + 1}</figcaption>
             </figure>
           ))}
