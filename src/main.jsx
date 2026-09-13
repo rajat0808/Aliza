@@ -5,6 +5,7 @@ import "./styles.css";
 const ASSET_BASE = `${import.meta.env.BASE_URL}assets/`;
 const PHOTO_SRC = `${ASSET_BASE}IMG_20260913_050139_348.jpg`;
 const ANSWER_EMAIL = "rs617718@gmail.com";
+const MIN_FINAL_WORDS = 100;
 const doodleTypes = ["heart", "spark", "ring", "squiggle", "dot"];
 const imageAssets = [
   "IMG_20260913_050139_348.jpg",
@@ -326,7 +327,9 @@ function FinalChoicePage() {
   const [choiceAnswer, setChoiceAnswer] = useState("");
   const [submittedAnswer, setSubmittedAnswer] = useState("");
   const [showLetter, setShowLetter] = useState(false);
-  const canSubmit = choiceAnswer.trim().length > 0;
+  const answerWords = choiceAnswer.trim().split(/\s+/).filter(Boolean).length;
+  const canSubmit = answerWords >= MIN_FINAL_WORDS;
+  const wordsLeft = Math.max(MIN_FINAL_WORDS - answerWords, 0);
 
   return (
     <form
@@ -361,6 +364,12 @@ function FinalChoicePage() {
           rows="5"
         />
       </label>
+
+      <p className={`wordCounter ${canSubmit ? "ready" : ""}`}>
+        {canSubmit
+          ? `${answerWords} words, ready to send.`
+          : `${wordsLeft} more word${wordsLeft === 1 ? "" : "s"} needed to move forward.`}
+      </p>
 
       <button
         className="openButton softPurple unlockButton"

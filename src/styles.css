@@ -925,6 +925,19 @@ h2 {
   border-color: #a977ff;
 }
 
+.wordCounter {
+  width: 100%;
+  margin: -0.25rem 0 0;
+  color: #8b54e8;
+  font-size: 0.95rem;
+  font-weight: 900;
+  text-align: center;
+}
+
+.wordCounter.ready {
+  color: #5f35bf;
+}
+
 .openButton:disabled {
   cursor: not-allowed;
   opacity: 0.55;
