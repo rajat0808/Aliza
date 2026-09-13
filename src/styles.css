@@ -15,10 +15,12 @@ body {
   min-height: 100vh;
   margin: 0;
   overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
 }
 
 button {
   font: inherit;
+  touch-action: manipulation;
 }
 
 h1,
@@ -31,6 +33,7 @@ p {
   position: relative;
   display: grid;
   min-height: 100vh;
+  min-height: 100dvh;
   place-items: center;
   padding: 4.8rem 1rem 4rem;
   overflow: hidden;
@@ -645,6 +648,7 @@ h2 {
   background: #fbf8ff;
   color: #251538;
   font: inherit;
+  font-size: 16px;
   font-weight: 800;
   outline: none;
   box-shadow: inset 0 0.18rem 0.55rem rgba(103, 49, 201, 0.08);
@@ -915,6 +919,7 @@ h2 {
   background: #fbf8ff;
   color: #251538;
   font: inherit;
+  font-size: 16px;
   font-weight: 800;
   line-height: 1.45;
   outline: none;
@@ -1176,7 +1181,11 @@ h2 {
 
   .pageShell {
     min-height: 100svh;
-    padding-top: 4.2rem;
+    min-height: 100dvh;
+    align-items: start;
+    overflow: visible;
+    padding-top: max(4.2rem, env(safe-area-inset-top));
+    padding-bottom: max(4.6rem, calc(env(safe-area-inset-bottom) + 3.9rem));
   }
 
   .loveCard {
@@ -1195,6 +1204,7 @@ h2 {
 
   .openButton {
     min-width: min(13.2rem, 82vw);
+    min-height: 3.65rem;
   }
 
   .secretReveal {
@@ -1242,6 +1252,109 @@ h2 {
 
   .answerBox textarea {
     min-height: 8rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .topHandle {
+    width: min(14.5rem, 58vw);
+    height: 2.25rem;
+  }
+
+  .topHandle span {
+    width: 4.8rem;
+    height: 0.5rem;
+  }
+
+  .loveCard {
+    width: min(24.6rem, calc(100vw - 1rem));
+    min-height: auto;
+    padding: 2.55rem 1rem 1.45rem;
+    border-width: 0.24rem;
+    border-radius: 1.45rem;
+    outline-width: 0.25rem;
+  }
+
+  .loveCard.page-photo,
+  .loveCard.page-bear,
+  .loveCard.page-question,
+  .loveCard.page-kiss,
+  .loveCard.page-secret,
+  .loveCard.page-choose {
+    row-gap: 0.85rem;
+    padding-top: 2.35rem;
+  }
+
+  .cardDots span {
+    width: 1.75rem;
+  }
+
+  h1 {
+    margin-bottom: 1.65rem;
+    font-size: clamp(2.05rem, 10vw, 2.65rem);
+  }
+
+  h2 {
+    font-size: clamp(1.95rem, 10.5vw, 2.75rem);
+  }
+
+  .helloText {
+    font-size: clamp(3.5rem, 16vw, 4.4rem);
+  }
+
+  .littleBuddy {
+    width: min(7rem, 34vw);
+  }
+
+  .cuteArt {
+    width: min(12.4rem, 62vw);
+  }
+
+  .photoFrame {
+    width: min(14.2rem, 72vw);
+  }
+
+  .caption,
+  .smallNote {
+    font-size: clamp(1.05rem, 4.8vw, 1.28rem);
+  }
+
+  .pager {
+    bottom: max(0.65rem, env(safe-area-inset-bottom));
+    gap: 0.42rem;
+    padding: 0.5rem 0.7rem;
+  }
+
+  .pager button {
+    width: 0.68rem;
+  }
+
+  .secretLock,
+  .finalChoice {
+    gap: 0.75rem;
+  }
+
+  .secretQuestion div,
+  .secretNav {
+    gap: 0.5rem;
+  }
+
+  .answerBox textarea {
+    min-height: 10.5rem;
+  }
+
+  .letterPopup {
+    border-radius: 1.45rem;
+    max-height: calc(100dvh - 2rem);
+    overflow-y: auto;
+  }
+}
+
+@media (hover: none) {
+  .memoryTile:hover,
+  .openButton:hover,
+  .pager button:hover {
+    transform: none;
   }
 }
 
